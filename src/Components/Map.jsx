@@ -41,7 +41,7 @@ const [stage, setStage] = useState({
 			);
 		}
 );
-
+ 
     return (
         <>
             <Stage width={window.innerWidth}
