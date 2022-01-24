@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
-import { Stage, Layer, Rect, Image} from 'react-konva';
-import useImage from 'use-image';
+import { Stage, Layer, Rect} from 'react-konva';
 import MapData from './mapData.json'
 
 const Map = () => {
 const [eid, setId] = useState(0)
-const data = { 0: {name: ""},1 : {name: "One"}, 2 : {name: "Two"}, 3 : {name: "Three"}, 4 : {name: "Four"}, 5 : {name: "Five"}, 
-}
 
 const [stage, setStage] = useState({
     scale: 1,
