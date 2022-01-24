@@ -4,61 +4,141 @@
         "id": 1,
         "x": 0,
         "y": 0,
-        "type": "basic"
+        "type": "basic",
+        "owner": "sanket"
     },
     {
         "id": 2,
         "x": 1,
         "y": 0,
-        "type": "basic"
+        "type": "basic",
+        "owner": "Kunal"
     },
     {
         "id": 3,
         "x": 2,
         "y": 0,
-        "type": "rare"
+        "type": "rare",
+        "owner": "sanket"
     },
     {
         "id": 4,
         "x": 3,
         "y": 0,
-        "type": "rare"
+        "type": "rare",
+        "owner": "Ayush"
     },
     {
         "id": 5,
         "x": 4,
         "y": 0,
-        "type": "rare"
+        "type": "rare",
+        "owner": "Himanshu"
     },
     {
         "id": 6,
         "x": 0,
         "y": 1,
-        "type": "basic"
+        "type": "basic",
+        "owner": "Ayush"
     },
     {
         "id": 7,
         "x": 1,
         "y": 1,
-        "type": "basic"
+        "type": "basic",
+        "owner": "sanket"
     },
     {
         "id": 8,
         "x": 2,
         "y": 1,
-        "type": "rare"
+        "type": "rare",
+        "owner": "Suraj"
     },
     {
         "id": 9,
         "x": 3,
         "y": 1,
-        "type": "rare"
+        "type": "rare",
+        "owner": "Himanshu"
     },
     {
         "id": 10,
         "x": 4,
         "y": 1,
-        "type": "basic"
+        "type": "basic",
+        "owner": "Suraj"
+    },
+    {
+        "id": 11,
+        "x": 0,
+        "y": 2,
+        "type": "rare",
+        "owner": "sanket"
+    },
+    {
+        "id": 12,
+        "x": 1,
+        "y": 2,
+        "type": "rare",
+        "owner": "Kunal"
+    },
+    {
+        "id": 13,
+        "x": 2,
+        "y": 2,
+        "type": "basic",
+        "owner": "Kunal"
+    },
+    {
+        "id": 14,
+        "x": 3,
+        "y": 2,
+        "type": "rare",
+        "owner": "Kunal"
+    },
+    {
+        "id": 15,
+        "x": 4,
+        "y": 2,
+        "type": "basic",
+        "owner": "Kunal"
+    },
+    {
+        "id": 16,
+        "x": 0,
+        "y": 3,
+        "type": "rare",
+        "owner": "Shubham"
+    },
+    {
+        "id": 17,
+        "x": 1,
+        "y": 3,
+        "type": "rare",
+        "owner": "sanket"
+    },
+    {
+        "id": 18,
+        "x": 2,
+        "y": 3,
+        "type": "basic",
+        "owner": "Shubham"
+    },
+    {
+        "id": 19,
+        "x": 3,
+        "y": 3,
+        "type": "basic",
+        "owner": "Shubham"
+    },
+    {
+        "id": 20,
+        "x": 4,
+        "y": 3,
+        "type": "rare",
+        "owner": "Shubham"
     }
 
 ]

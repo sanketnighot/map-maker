@@ -37,7 +37,7 @@ const [stage, setStage] = useState({
 		(data) => {
 		
 			return(
-				<Rect id={data.id} x={(data.x * height)+5} y={(data.y * width)+5} width={125} height={125} fill={(data.type === "basic" ? "lightBlue" : "lightPink")} shadowBlur={(eid === data.id) ? 5 : 0} stroke={(eid === data.id) ? 'green' : 'black'} zIndex={(eid === data.id) ? 9 : 0} strokeWidth={(eid === data.id) ? 7 : 5} onClick={(e)=>{setId(data.id);}} onTap={(e)=>{setId(data.id)}}/>
+				<Rect id={data.id} x={(data.x * height)+5} y={(data.y * width)+5} width={125} height={125} fill={(data.type === "basic" ? "lightBlue" : "lightPink")} shadowBlur={(eid === data.id) ? 15 : 0} stroke={(eid === data.id) ? 'green' : 'black'} zIndex={(eid === data.id) ? 19 : 0} strokeWidth={(eid === data.id) ? 7 : 5} onClick={(e)=>{setId(data.id);}} onTap={(e)=>{setId(data.id)}}/>
 			);
 		}
 );
@@ -57,9 +57,10 @@ const [stage, setStage] = useState({
 				{Map}
                 </Layer>
             </Stage>
-            <div style={{marginLeft:"5%"}}>
-                Data: 
-                {/* Name: {data[eid].name} */}
+            <div style={{marginLeft:"5%"}}> 
+                <h1>Name: {MapData[eid - 1].owner}</h1>
+				<h2>Location: {MapData[eid - 1].x}, {MapData[eid - 1].y}</h2>
+				<h2>Land Type: {MapData[eid - 1].type}</h2>
             </div>
 
             
