@@ -31,23 +31,16 @@ const Map = () => {
     });
   };
 
-<<<<<<< HEAD
+
   const width = 50;
   const height = 50;
-  const Map = MapData.map((data) => {
-=======
-  	const width = 125;
-	const height = 125;
-	const Map = MapData.map(
-		(data) => {
-		
+  const Map = MapData.map((data) => {	
 			return(
 				<Rect id={data.id} x={(data.x * height)+5} y={(data.y * width)+5} width={125} height={125} fill={(data.type === "basic" ? "lightBlue" : "lightPink")} shadowBlur={(eid === data.id) ? 5 : 0} stroke={(eid === data.id) ? 'green' : 'black'} zIndex={(eid === data.id) ? 9 : 0} strokeWidth={(eid === data.id) ? 7 : 5} onClick={(e)=>{setId(data.id);}} onTap={(e)=>{setId(data.id)}}/>
 			);
 		}
 );
  
->>>>>>> f56baf0e92ac7e9449922ca62b04806af9d80a16
     return (
       <Rect
         id={data.id}
