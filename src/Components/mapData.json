@@ -74,7 +74,7 @@
         "id": 11,
         "x": 0,
         "y": 2,
-        "type": "rare",
+        "type": "basic",
         "owner": "sanket"
     },
     {
@@ -88,7 +88,7 @@
         "id": 13,
         "x": 2,
         "y": 2,
-        "type": "basic",
+        "type": "rare",
         "owner": "Kunal"
     },
     {
@@ -109,7 +109,7 @@
         "id": 16,
         "x": 0,
         "y": 3,
-        "type": "rare",
+        "type": "basic",
         "owner": "Shubham"
     },
     {
