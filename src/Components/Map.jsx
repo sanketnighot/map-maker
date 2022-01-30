@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
-import {Stage, Layer, Rect} from 'react-konva';
-import MapData from './mapData.json'
+import {Image as KonvaImage, Stage, Layer, Rect} from 'react-konva';
+import useImage from "use-image";
+import MapData from './mapData.json';
+// **
+import AddImage from './AddImage';
+// **
 
 const Map = () => {
 const [eid, setId] = useState(0)
-
+const [image] = useImage("Final.png");
 const [stage, setStage] = useState({
     scale: 1,
 		x: 0,
@@ -33,12 +37,58 @@ const [stage, setStage] = useState({
   	const width = 15;
 	const Map = MapData.map(
 		(data) => {
-		
+		if (data.image === "") {
 			return(
-				<Rect id={data.id} x={(data.x * width)+5} y={(data.y * width)+5} width={width} height={width} fill={(data.type === "basic" ? "lightBlue" : "lightPink")} shadowBlur={(eid === data.id) ? 2 : 0} stroke={(eid === data.id) ? 'green' : 'black'} zIndex={(eid === data.id) ? 5*5 : 0} strokeWidth={(eid === data.id) ? 0.75 : 0.2} onClick={()=>{setId(data.id);}} onTap={()=>{setId(data.id)}}/>
+				
+				<>
+				<Rect 	x={(data.x * width)+5} 
+						y={(data.y * width)+5} 
+						width={width} 
+						height={width} 
+						fill={(data.type === "basic" ? "lightBlue" : "lightPink")} 
+						shadowBlur={(eid === data.id) ? 2 : 0} 
+						stroke={(eid === data.id) ? 'green' : 'black'} 
+						zIndex={(eid === data.id) ? 19 : 0} 
+						strokeWidth={(eid === data.id) ? 0.75 : 0.2} 
+						onClick={()=>{setId(data.id);}} 
+						onTap={()=>{setId(data.id)}}/>
+				</>
+			);
+		} else {
+			return(
+				<>
+				<AddImage 	x={(data.x * width)+5} 
+							y={(data.y * width)+5} 
+							width={width} 
+							height={width}  
+							shadowBlur={(eid === data.id) ? 2 : 0} 
+							stroke={(eid === data.id) ? 'green' : 'black'} 
+							zIndex={(eid === data.id) ? 500 : 0} 
+							strokeWidth={(eid === data.id) ? 0.75 : 0.2} 
+							onClick={()=>{setId(data.id);}} 
+							onTap={()=>{setId(data.id)}} 
+							img={data.image}/>
+				<Rect 	x={(data.x * width)+5} 
+						y={(data.y * width)+5} 
+						width={width} 
+						height={width} 
+						fill={(data.type === "basic" ? "transparent" : "transparent")} 
+						shadowBlur={(eid === data.id) ? 2 : 0} 
+						stroke={(eid === data.id) ? 'green' : 'transparent'} 
+						zIndex={(eid === data.id) ? 50 : 1000} 
+						strokeWidth={(eid === data.id) ? 0.75 : 0.2} 
+						onClick={()=>{setId(data.id);}} 
+						onTap={()=>{setId(data.id)}}/>
+				</>
 			);
 		}
+		}
 );
+
+// **
+
+// **
+
  
     return (
         <>
@@ -53,6 +103,10 @@ const [stage, setStage] = useState({
                     style={{backgroundColor:"#BBBBBB"}}>
                 <Layer>
 				{Map}
+				
+				{/* ** */}
+				
+				{/* ** */}
                 </Layer>
             </Stage>
 			<center>

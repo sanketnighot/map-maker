@@ -5,140 +5,160 @@
         "x": 0,
         "y": 0,
         "type": "basic",
-        "owner": "sanket"
+        "owner": "sanket",
+        "image": "https://picsum.photos/200"
     },
     {
         "id": 2,
         "x": 1,
         "y": 0,
         "type": "basic",
-        "owner": "Kunal"
+        "owner": "Kunal",
+        "image": ""
     },
     {
         "id": 3,
         "x": 2,
         "y": 0,
         "type": "rare",
-        "owner": "sanket"
+        "owner": "sanket",
+        "image": ""
     },
     {
         "id": 4,
         "x": 3,
         "y": 0,
         "type": "rare",
-        "owner": "Ayush"
+        "owner": "Ayush",
+        "image": ""
     },
     {
         "id": 5,
         "x": 4,
         "y": 0,
         "type": "rare",
-        "owner": "Himanshu"
+        "owner": "Himanshu",
+        "image": ""
     },
     {
         "id": 6,
         "x": 0,
         "y": 1,
         "type": "basic",
-        "owner": "Ayush"
+        "owner": "Ayush",
+        "image": ""
     },
     {
         "id": 7,
         "x": 1,
         "y": 1,
         "type": "basic",
-        "owner": "sanket"
+        "owner": "sanket",
+        "image": ""
     },
     {
         "id": 8,
         "x": 2,
         "y": 1,
         "type": "rare",
-        "owner": "Suraj"
+        "owner": "Suraj",
+        "image": "https://picsum.photos/200"
     },
     {
         "id": 9,
         "x": 3,
         "y": 1,
         "type": "rare",
-        "owner": "Himanshu"
+        "owner": "Himanshu",
+        "image": ""
     },
     {
         "id": 10,
         "x": 4,
         "y": 1,
         "type": "basic",
-        "owner": "Suraj"
+        "owner": "Suraj",
+        "image": ""
     },
     {
         "id": 11,
         "x": 0,
         "y": 2,
         "type": "basic",
-        "owner": "sanket"
+        "owner": "sanket",
+        "image": "https://picsum.photos/200"
     },
     {
         "id": 12,
         "x": 1,
         "y": 2,
         "type": "rare",
-        "owner": "Kunal"
+        "owner": "Kunal",
+        "image": ""
     },
     {
         "id": 13,
         "x": 2,
         "y": 2,
         "type": "rare",
-        "owner": "Kunal"
+        "owner": "Kunal",
+        "image": ""
     },
     {
         "id": 14,
         "x": 3,
         "y": 2,
         "type": "rare",
-        "owner": "Kunal"
+        "owner": "Kunal",
+        "image": ""
     },
     {
         "id": 15,
         "x": 4,
         "y": 2,
         "type": "basic",
-        "owner": "Kunal"
+        "owner": "Kunal",
+        "image": ""
     },
     {
         "id": 16,
         "x": 0,
         "y": 3,
         "type": "basic",
-        "owner": "Shubham"
+        "owner": "Shubham",
+        "image": ""
     },
     {
         "id": 17,
         "x": 1,
         "y": 3,
         "type": "rare",
-        "owner": "sanket"
+        "owner": "sanket",
+        "image": "https://picsum.photos/200"
     },
     {
         "id": 18,
         "x": 2,
         "y": 3,
         "type": "basic",
-        "owner": "Shubham"
+        "owner": "Shubham",
+        "image": ""
     },
     {
         "id": 19,
         "x": 3,
         "y": 3,
         "type": "basic",
-        "owner": "Shubham"
+        "owner": "Shubham",
+        "image": "https://picsum.photos/200"
     },
     {
         "id": 20,
         "x": 4,
         "y": 3,
         "type": "rare",
-        "owner": "Shubham"
+        "owner": "Shubham",
+        "image": ""
     }
 
 ]
