@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Stage, Layer, Image } from "react-konva";
+import { Image } from "react-konva";
 
 export default function AddImage(props) {
   const [image, setImage] = useState(new window.Image());
