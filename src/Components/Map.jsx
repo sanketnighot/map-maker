@@ -3,6 +3,7 @@ import {Stage, Layer, Rect} from 'react-konva';
 import MapData from './mapData.json';
 import AddImage from './AddImage';
 
+import web3 from 'web3';
 
 const Map = () => {
 const [eid, setId] = useState(0)
