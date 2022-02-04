@@ -4,6 +4,7 @@ import useImage from "use-image";
 import MapData from './mapData.json';
 // **
 import AddImage from './AddImage';
+import web3 from 'web3';
 // **
 
 const Map = () => {
