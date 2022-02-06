@@ -1,4 +1,4 @@
-export const simpleStorageABI = [
+export const ABI = [
   {
     "inputs": [],
     "stateMutability": "nonpayable",

@@ -3,7 +3,7 @@ import {Stage, Layer, Rect} from 'react-konva';
 import MapData from './mapData.json';
 import AddImage from './AddImage';
 
-import web3 from 'web3';
+import ContractConn from './ContractConn'
 
 const Map = () => {
 const [eid, setId] = useState(0)
@@ -87,7 +87,7 @@ const [stage, setStage] = useState({
     return (
         <>
             <Stage width={window.innerWidth}
-                    height={window.innerHeight*(0.8)}
+                    height={window.innerHeight*(0.65)}
                     onWheel={handleWheel}
                     scaleX={stage.scale}
                     scaleY={stage.scale}
@@ -99,7 +99,6 @@ const [stage, setStage] = useState({
 				{Map}
                 </Layer>
             </Stage>
-			<center>
 			<div className="container" style={{display:"flex"}}>
             <div style={{marginLeft:"5%", display: "inlineBlock"}}> 
 			{(eid !== 0) ? 
@@ -110,11 +109,10 @@ const [stage, setStage] = useState({
 				</>:
 			 <h1>Click/Tap the Tile to get Data</h1>}
             </div>
-			<div style={{margin:"5%"}}> 
-				<button onClick={()=> {console.log("Clicked");}}>Connect Wallet</button>
+			<div style={{margin:"2%"}}> 
+				<ContractConn/>
 			</div>
 			</div>
-			</center>
             
         </>
     )
