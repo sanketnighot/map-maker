@@ -49,7 +49,7 @@ const [stage, setStage] = useState({
 						fill={(data.type === "basic" ? "lightBlue" : "lightPink")} 
 						shadowBlur={(eid === data.id) ? 2 : 0} 
 						stroke={(eid === data.id) ? 'green' : 'black'} 
-						zIndex={(eid === data.id) ? 19 : 0} 
+						zIndex={(eid === data.id) ? 500 : 0} 
 						strokeWidth={(eid === data.id) ? 0.75 : 0.2} 
 						onClick={()=>{setId(data.id);}} 
 						onTap={()=>{setId(data.id)}}/>
