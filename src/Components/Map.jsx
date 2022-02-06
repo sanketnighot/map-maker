@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
-import {Image as KonvaImage, Stage, Layer, Rect} from 'react-konva';
-import useImage from "use-image";
+import {Stage, Layer, Rect} from 'react-konva';
 import MapData from './mapData.json';
-// **
 import AddImage from './AddImage';
+
 import web3 from 'web3';
-// **
 
 const Map = () => {
 const [eid, setId] = useState(0)
-const [image] = useImage("Final.png");
 const [stage, setStage] = useState({
     scale: 1,
 		x: 0,
@@ -58,39 +55,35 @@ const [stage, setStage] = useState({
 		} else {
 			return(
 				<>
-				<AddImage 	x={(data.x * width)+5} 
+					<AddImage 	x={(data.x * width)+5} 
+								y={(data.y * width)+5} 
+								width={width} 
+								height={width}  
+								shadowBlur={(eid === data.id) ? 2 : 0} 
+								stroke={(eid === data.id) ? 'green' : '#BBBBBB'} 
+								zIndex={(eid === data.id) ? 500 : 0} 
+								strokeWidth={(eid === data.id) ? 0.75 : 0.2} 
+								onClick={()=>{setId(data.id);}} 
+								onTap={()=>{setId(data.id)}} 
+								img={data.image}/>
+					<Rect 	x={(data.x * width)+5} 
 							y={(data.y * width)+5} 
 							width={width} 
-							height={width}  
+							height={width} 
+							fill={(data.type === "basic" ? "transparent" : "transparent")} 
 							shadowBlur={(eid === data.id) ? 2 : 0} 
-							stroke={(eid === data.id) ? 'green' : 'black'} 
-							zIndex={(eid === data.id) ? 500 : 0} 
+							stroke={(eid === data.id) ? 'green' : 'transparent'} 
+							zIndex={(eid === data.id) ? 20 : 24} 
 							strokeWidth={(eid === data.id) ? 0.75 : 0.2} 
 							onClick={()=>{setId(data.id);}} 
-							onTap={()=>{setId(data.id)}} 
-							img={data.image}/>
-				<Rect 	x={(data.x * width)+5} 
-						y={(data.y * width)+5} 
-						width={width} 
-						height={width} 
-						fill={(data.type === "basic" ? "transparent" : "transparent")} 
-						shadowBlur={(eid === data.id) ? 2 : 0} 
-						stroke={(eid === data.id) ? 'green' : 'transparent'} 
-						zIndex={(eid === data.id) ? 50 : 1000} 
-						strokeWidth={(eid === data.id) ? 0.75 : 0.2} 
-						onClick={()=>{setId(data.id);}} 
-						onTap={()=>{setId(data.id)}}/>
+							onTap={()=>{setId(data.id)}}/>	
 				</>
 			);
 		}
 		}
 );
 
-// **
 
-// **
-
- 
     return (
         <>
             <Stage width={window.innerWidth}
@@ -104,13 +97,10 @@ const [stage, setStage] = useState({
                     style={{backgroundColor:"#BBBBBB"}}>
                 <Layer>
 				{Map}
-				
-				{/* ** */}
-				
-				{/* ** */}
                 </Layer>
             </Stage>
 			<center>
+			<div className="container" style={{display:"flex"}}>
             <div style={{marginLeft:"5%", display: "inlineBlock"}}> 
 			{(eid !== 0) ? 
 				<>
@@ -120,6 +110,10 @@ const [stage, setStage] = useState({
 				</>:
 			 <h1>Click/Tap the Tile to get Data</h1>}
             </div>
+			<div style={{margin:"5%"}}> 
+				<button onClick={()=> {console.log("Clicked");}}>Connect Wallet</button>
+			</div>
+			</div>
 			</center>
             
         </>
