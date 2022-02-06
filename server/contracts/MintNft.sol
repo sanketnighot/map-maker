@@ -11,9 +11,9 @@ contract NFT is ERC721,ERC721URIStorage{
     uint256 public landNFT=0;
     uint256 public lordNFT=0;
     address adminNft;
-    event Breach(address);
-    event lordMinted(uint256);
-    event landMinted(uint256);
+    event Breach(address user);
+    event lordMinted(uint256 tokenId);
+    event landMinted(uint256 tokenId);
     string private salt="1234";
     
     constructor() ERC721("ProperT","PRT"){
