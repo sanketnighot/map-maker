@@ -15,7 +15,7 @@ contract("Minting", (accounts) => {
       var hash = sha256.create();
       const hashVal = hash.update("45" + salt).hex();
       console.log(hashVal);
-      const result = await contract.mint("0x" + hashVal, "", { value: 45 });
+      const result = await contract.mint("0x" + hashVal, "", 0, { value: 45 });
       console.log(result.logs[0].args);
     });
 

@@ -8,12 +8,9 @@ const salt = "1234";
 const contractAddress = "0x47cd729Cea4E0B4Cb058BA48bbf0fD85b646a867";
 const abi = ABI;
 
-
-
-
 const ContractConn = () => {
     const [currentAccount, setCurrentAccount] = useState(null);
-    const [dispMsg, setDispMsg] = useState("Start Minting");
+    const [dispMsg, setDispMsg] = useState("Connect Wallet");
     const checkWalletIsConnected = async () => {
         const {ethereum} = window;
         if (!ethereum) {
@@ -65,12 +62,12 @@ const ContractConn = () => {
                 const contract = new ethers.Contract(contractAddress, abi, signer);
                 setDispMsg("Contract Connected");
                 var hash = sha256.create();
-                const hashVal = hash.update("45" + salt).hex();
+                const hashVal = hash.update("0" + salt).hex();
                 console.log(hashVal);
-                setDispMsg("Minting ...")
-                let nftTxn = await contract.mint("0x" + hashVal, "", { value: 45 }).then((data)=>{
+                setDispMsg("Minting ...");
+                let nftTxn = await contract.mint("0x" + hashVal, "", 0, { value: 45 }).then((data)=>{
                     setDispMsg(`NFT Minted See Txn hash at https://rinkeby.etherscan.io/tx/${data.hash}`)
-                });
+                }).catch((err)=>{console.log(err);})
             } else {
                 setDispMsg("Ethereum Object Does not Exists");
                 return alert("Ethereum Object Does not Exists");
