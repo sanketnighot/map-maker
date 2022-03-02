@@ -9,7 +9,7 @@ const Map = () => {
 	const [eid, setId] = useState("")
 	const [currData, setCurrData] = useState([]);
 	const [stage, setStage] = useState({
-		scale: 1,
+			scale: 1,
 			x: -40,
 			y: -40
 	});
@@ -65,14 +65,17 @@ const Map = () => {
 		});
 	};
 
-	const getColor = (land) => {
-		if (land === "LOL") {
+	const getColor = (land, size, id) => {
+		if (id === eid) {
+			return "#008080";
+		}
+		if (land === "LOL" || size === 3) {
 			return "#321d70";
-		} else if (land === "RARE"){
+		} else if (land === "CITY"){
 			return "#d82eee";
-		} else if (land === "ULTRA_PREMIUM") {
+		} else if (land === "NEIGHBOUR") {
 			return "#a365ef";
-		} else if (land === "PREMIUM") {
+		} else if (land === "PREMIUM LAND") {
 			return "#f8cdfc";
 		} else {
 			return "#8a1fae";
@@ -85,7 +88,7 @@ const Map = () => {
 			x : currData.x,
 			y : currData.y,
 			update: {
-				landType: "PREMIUM"
+				landType: "PREMIUM_LAND"
 			}
 		}
 		axios.post('http://localhost:8000/map/updateTile', sendData).then(() => setMsg("Updated")).catch(err => {
@@ -113,7 +116,7 @@ const Map = () => {
 						y={(-data.y * width)+5} 
 						width={width*data.size} 
 						height={width*data.size} 
-						fill= {getColor(data.landType)}
+						fill= {getColor(data.landType, data.size, data._id)}
 						shadowBlur={(eid === data._id) ? 2 : 0} 
 						stroke={(eid === data._id) ? '#81f78e' : 'black'} 
 						zIndex={(eid === data._id) ? 5000 : -500} 
@@ -122,7 +125,7 @@ const Map = () => {
 							setId(data._id);
 							const currId = data._id;
 							fetchCurrData(currId);
-							updateData();
+							//updateData();
 							}} 
 						onTap={async()=>{
 							setId(data._id);
@@ -180,8 +183,6 @@ const Map = () => {
 );
 
 
-
-
     return (
 
         <>
@@ -202,26 +203,23 @@ const Map = () => {
             <div style={{marginLeft:"5%", display: "inlineBlock"}}> 
 			{(eid !== "") ? 
 				<>
-                <h1>Name: {currData.owner}</h1> <br/>
-				x: {currData.x} ,
-				y: {currData.y} <br/>
-				size: {currData.size} <br/>
-				id: {currData._id} <br/>
-				land type: {currData.landType} <br/>
-				price: {currData.price} WEI
-				<input name="input" type="text" value={dataInput} onChange={(e) => {updateTxt(e)}} placeholder="Land Type"/> 
-				<button onClick={()=>{updateData()}}>Submit</button><br/>
+                <h2>Name: {currData.name}</h2> <br/>
+				x: <b>{currData.x} </b> ,
+				y: <b>{currData.y} </b><br/>
+				size: <b>{currData.size} </b> <br/>
+				id: <b>{currData.tokenId} </b> <br/>
+				land type: <b>{currData.landType} </b> <br/>
+				price: <b>{currData.price} ETH </b> <br/>
+				status: <b>{currData.status} </b>
+				{/* <input name="input" type="text" value={dataInput} onChange={(e) => {updateTxt(e)}} placeholder="Land Type"/> 
+				<button onClick={()=>{updateData()}}>Submit</button><br/> */}
 				{msg}
-				{/* <h2>Location: {FullMapData[eid].x}, {FullMapData[eid].y}</h2>
-				<h2>Land Type: {FullMapData[eid].landType} </h2>  */}
 				</>:
 			 <h1>Click/Tap the Tile to get Data</h1>}
             </div>
 			<div style={{margin:"2%"}}> 
 				<ContractConn 	
-					x = {currData.x}
-					y = {currData.y}
-					price = {currData.price}
+					data = {currData}
 				/>
 			</div>
 			</div>
@@ -231,3 +229,5 @@ const Map = () => {
 }
 
 export default Map
+
+

@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Web3 from 'web3';
 import {ABI} from './ABI'
 import { ethers } from 'ethers';
+import axios from 'axios';
+
 var sha256 = require("js-sha256").sha256;
 const salt = "1234";
 
-const contractAddress = "0x47cd729Cea4E0B4Cb058BA48bbf0fD85b646a867";
+const contractAddress = "0xDaA9e437042cB8d1Afb9Ba1201fEe5159C17F32a";
 const abi = ABI;
 
 const ContractConn = (props) => {
@@ -26,7 +28,7 @@ const ContractConn = (props) => {
             const account = accounts[0];
             setCurrentAccount(account);
             setDispMsg("Wallet Connected");
-            return alert("Wallet is connected !");
+            // return alert("Wallet is connected !");
         } else {
             setDispMsg("Account Not Found");
             return alert("Account Not Found !")
@@ -44,7 +46,7 @@ const ContractConn = (props) => {
             setCurrentAccount(accounts[0]);
             console.log(accounts);
             setDispMsg("Wallet Connected");
-            alert("Wallet is connected")
+            // alert("Wallet is connected")
         } catch (e) {
             console.log(e)
             setDispMsg("Error, Check console log");
@@ -57,16 +59,35 @@ const ContractConn = (props) => {
 
             const {ethereum} =window;
             if (ethereum) {
+				const info = props.data
+				console.log("info: ", info)
                 const provider = new ethers.providers.Web3Provider(ethereum);
                 const signer = provider.getSigner();
                 const contract = new ethers.Contract(contractAddress, abi, signer);
                 setDispMsg("Contract Connected");
                 var hash = sha256.create();
-                const hashVal = hash.update((props.price).toString() + salt).hex();
+                const hashVal = hash.update("45" + salt).hex();
                 console.log(hashVal);
                 setDispMsg("Minting ...");
-				const data = `x: ${props.x}, y: ${props.y}`;
-                let nftTxn = await contract.mint("0x" + hashVal, data, 0, { value: props.price })
+				// const ipfsData = {
+				// 	name: info.name,
+				// 	image: "ipfs://QmSzD6AspMHsULuPeGVWsTywVKCFAsDVnRPVSt7832EiFY",
+				// 	external_link: "http://www.lordsofthelands.io",
+				// 	external_url: "http://www.lordsofthelands.io",
+				// 	description: "This is the Test NFT Minted",
+				// 	attributes: [
+				// 		{
+				// 			trait_type: "Type",
+				// 			value: "LAND",
+				// 		},
+				// 		{
+				// 			trait_type: "Variant",
+				// 			value: info.landType,
+				// 		}
+				// 	]
+				// }
+				const ipfsData = "https://ipfs.io/ipfs/QmReL63vqRaN2FszQkzdTZU3XB2tq81mreiyiKUMdQNhnw";
+                let nftTxn = await contract.mint("0x" + hashVal, info.tokenId, ipfsData, 0, { value: 45 })
                 console.log(nftTxn);
 				setDispMsg(`Check Txn here https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
             } else {
@@ -74,14 +95,12 @@ const ContractConn = (props) => {
                 return alert("Ethereum Object Does not Exists");
             }
 
-
-
         } catch (e) {
             console.log(e);
             return alert("Error");
         }
     }
-  
+
     const connectWalletButton = () => {
       return (
         <button onClick={connectWalletHandler} className='cta-button connect-wallet-button'>
@@ -89,7 +108,7 @@ const ContractConn = (props) => {
         </button>
       )
     }
-  
+
     const mintNftButton = () => {
       return (
         <button onClick={mintNftHandler} className='cta-button mint-nft-button'>
@@ -97,11 +116,10 @@ const ContractConn = (props) => {
         </button>
       )
     }
-  
+
     useEffect(() => {
       checkWalletIsConnected();
     }, [])
-  
     return (
       <div className='main-app'>
         <h1>Lands of the Lords</h1>
